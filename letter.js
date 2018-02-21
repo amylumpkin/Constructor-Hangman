@@ -5,32 +5,26 @@
 var inquirer = require("inquirer");
 
 //constructor function - needs to define a string and a boolean value...
-const Letter = function() {
-    this.stringValue = stringValue;
-    this.boolean = true;
-}
+const Letter = function(character) {
+    this.character = character;    //string value
+    this.letterGuessed = false;    //boolean
 
-/*
-//to run inquirer:
-inquirer.prompt([
-    {
-        Pass questions in here 
-    },
-]).then(function(answers) {
+    //define a function that returns underlying character if correct letter is guessed, or underscore if not.
+    this.print = function(guess){
+        if (guess === this.character) {
+            return this.character;
+        }
+        else {
+            return "_";
+        }
+    };
 
-});
-*/
-
-//define string value to store underlying character for the letter.
-
-//define a boolean value to store whether correct letter has been guessed.
-
-//define a function that returns underlying character if correct letter is guessed, or underscore if not.
-this.return = function(){
-
-}
-
-//guess function - takes a character as an argument and checks it against the underlying character, updating the stored boolean value to true if it was guessed correctly
-this.guess = function(){
-    
-}
+    //guess function - takes a character as an argument and checks it against the underlying character, updating the stored boolean value to true if it was guessed correctly
+    this.checkGuess = function(guess){
+        if (guess === this.character){
+            this.letterGuessed = true;
+        }
+    }
+};
+//export letter constructor b/c word file requires it.    
+module.exports = Letter;
