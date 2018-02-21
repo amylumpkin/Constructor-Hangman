@@ -1,7 +1,7 @@
 //and this file requires word.js only
 //this file contains the logic
 
-var Word = require("./Word.js");
+var Word = require("./word.js");
 
 //randomly select a word and use 'Word' constructor to store it.
 
